@@ -1,0 +1,34 @@
+
+
+.main{
+    position: relative;
+}
+
+.clearfix .bf{
+    width: 558px;
+    height: 558px;
+    position: absolute;
+    left: 470px;
+    top: -40px;
+    z-index: 1;
+}
+.clearfix .bf{
+    width: 562.5px;
+    height: 562.5px;
+    overflow: hidden;
+}
+.clearfix .bf img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.spic .sf{
+    background: #845f3f;
+    opacity: .5;
+    position: absolute;
+    cursor: move;
+    top: 0;
+    left: 0;
+}
+

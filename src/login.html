@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米账号-登录</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="layout" id="layout">
+        <!--表单输入登录-->
+        <div class="mainbox form-panel" id="login-main">
+            <div id="custom_display_2"><a class="ercode" id="qrcode-trigger" href="javascript:void(0)"></a></div>
+            <!-- header s -->
+            <div class="lgnheader">
+                <div class="header_tit t_c">
+                    <em id="custom_display_1" class="milogo">
+                        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="3" ry="3" style="fill:#ff6700"></rect>
+                            <rect x="10" y="15" width="4.2" height="18" style="fill:#FFFFFF"></rect>
+                            <rect x="33.75" y="15" width="4.2" height="18" style="fill:#FFFFFF"></rect>
+                            <rect x="11.25" y="15" width="15" height="4.1" style="fill:#FFFFFF"></rect>
+                            <rect x="26.2" y="20.55" width="4.2" height="12.5" style="fill:#FFFFFF"></rect>
+                            <rect x="20.6" y="15" width="9.8" height="9.8" rx="4.4" ry="4.4" style="fill:#FFFFFF">
+                            </rect>
+                            <rect x="20.2" y="19" width="6" height="6" rx="2" ry="2" style="fill:#ff6700"></rect>
+                            <rect x="18" y="19.1" width="4" height="2.2" style="fill:#ff6700"></rect>
+                            <rect x="24.2" y="23" width="1.94" height="10" style="fill:#ff6700"></rect>
+                            <rect x="18.1" y="22.8" width="4.2" height="10.2" style="fill:#FFFFFF"></rect>
+                        </svg>
+                    </em>
+                    <h4 class="header_tit_txt" id="login-title">小米帐号登录</h4>
+                    <div class="site_info"></div>
+                </div>
+            </div>
+
+            <!-- tab e -->
+            <!-- tab con s -->
+            <div class="tabs-con tabs_con now" data-con="pwd">
+
+                <div class="login_area">
+                    <form action="http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/login.php" method="POST" id="login-main-form">
+                        <div class="loginbox c_b">
+                            <!-- 输入框 -->
+                            <div class="lgn_inputbg c_b login-panel pwdLogin">
+                                <!--验证用户名-->
+                                <label id="region-code" class="labelbox login_user c_b" for="">
+                                    <input class="item_account" autocomplete="off" type="text" name="user" id="username"
+                                        placeholder="邮箱/手机号码/小米ID">
+                                    <div id="btn-clear-link" class="clear_link_panel">
+                                        <span class="clear_link"></span>
+                                    </div>
+                                </label>
+                                <label class="labelbox pwd_panel c_b">
+                                    <input class="item_account" type="password" placeholder="密码" autocomplete="off"
+                                        id="pwd" name="password">
+                                    <input class="item_account" type="text" placeholder="密码" autocomplete="off"
+                                        id="visiablePwd" name="visiablepwd" style="display:none">
+                                </label>
+                            </div>
+                            <!-- 错误信息 -->
+                            <div class="err_tip" >
+                                <div><span class="error-con"></span></div>
+                            </div>
+                            <!-- 提交按钮 -->
+                            <div class="btns_bg">
+                                <input class="btnadpt" id="login-button" type="submit" value="登录">
+                            </div>
+                            <!-- 立即注册 -->
+                            <div class="reverse">
+                                <div class="n_links_area" id="custom_display_64">
+                                    <a class="outer-link"
+                                        href="http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/src/registor.html">立即注册</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="tabs-con tabs_con" data-con="qr">
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

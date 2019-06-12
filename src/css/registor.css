@@ -1,0 +1,134 @@
+
+body {
+    background: #f9f9f9;
+    color: #666
+}
+
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -o-box;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-box-align: center;
+    box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -o-box-pack: center;
+    box-pack: center;
+    -ms-flex-pack: center
+}
+
+.wrap {
+    padding-bottom: 80px;
+    padding-top: 100px \9
+}
+
+@media screen and (min-width: 0\0) {
+    .wrap {
+        padding-top: 100px
+    }
+}
+
+.blockimportant .wrap {
+    padding-top: 0 \9
+}
+
+@media screen and (min-width: 0\0) {
+    .blockimportant .wrap {
+padding-top: 0
+    }
+}
+
+.layout {
+    width: 854px;
+    margin: 0 auto;
+    padding-bottom: 10px
+}
+
+.n-logo-area {
+    padding: 50px 0;
+    height: 31px;
+    line-height: 31px
+}
+
+.n-frame {
+    background: #fff;
+    padding: 34px 34px 0;
+    border: 1px solid #e6e6e6;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    min-height: 400px;
+    _height: 400px;
+}
+
+.device-frame {
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    padding-top: 0;
+    margin-top: 20px;
+}
+
+.title_big30 {
+    font-size: 30px;
+    color: #333;
+    line-height: 1.5;
+    font-weight: normal;
+    text-align: center;
+}
+
+.title_middle {
+    font-size: 16px
+}
+
+.milogo {
+    width: 49px;
+    height: 48px;
+    margin: 0 auto;
+    display: block;
+    cursor: default;
+    background-image: url(https://account.xiaomi.com/static/res/28f08d0/account-static/respassport/acc-2014/img/milogo.png)
+}
+
+form{
+    font-size: 20px;
+    padding-left: 250px;
+}
+
+form p input{
+    margin-left: 30px;
+    padding: 0;
+}
+
+form #code{
+    width: 100px;
+}
+
+form #submit{
+   width: 330px;
+   height: 42px;
+   line-height: 42px;
+   font-size: 16px;
+   background: #ff6700;
+   border: none;
+   color: white;
+   margin: 0;
+}

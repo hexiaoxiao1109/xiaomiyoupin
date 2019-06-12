@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米账号-注册</title>
+    <link rel="stylesheet" href="css/registor.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="layout">
+            <div class="n-frame device-frame reg_frame">
+                <div class="external_logo_area"><a class="milogo" href="javascript:void(0)"></a></div>
+                <div class="title-item t_c">
+                    <h4 class="title_big30">注册小米帐号</h4>
+                </div>
+                <form action="http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/registor.php" method="POST">
+                    <p>
+                        <label for="username">用 户 姓 名 ：</label><input type="text" id="username" autocomplete="off"
+                            name="username">
+                        <span></span>
+                    </p>
+                    <p>
+                        <label for="password">密 　 　 码 ：</label><input type="password" id="password" name="password">
+                        <span></span></p>
+                    <p>
+                        <label for="repass">确 认 密 码 ：</label><input type="password" id="repass">
+                        <span></span></p>
+                    <p>
+                        <label for="code">验　证　码 ：</label><input type="text" id="code" autocomplete="off">
+                        <span></span>
+                        <span>区分大小写</span>
+                    </p>
+                    <p>
+                        <input type="submit" id="submit" name="submit" value="立即注册">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script/js/ajax.js"></script>
+    <script src="script/js/registor.js"></script>
+</body>
+
+</html>
