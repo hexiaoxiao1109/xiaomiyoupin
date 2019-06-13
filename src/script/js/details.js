@@ -5,62 +5,275 @@
 
     class Magnifier {
         constructor() {
-            this.spic = $(".spic");
-            this.sf = $(".spic .sf");
-            this.bf = $(".bf");
-            this.bpic = $(".bf img");
-            this.ali = $("#list li");
-            this.ul = $("#list ul");
-            this.left = $("#left");
-            this.right = $("#right");
+            this.spic = null;
+            this.sf = null;
+            this.bf = null;
+            this.bpic = null;
+            this.div = null;
+            this.ul = null;
+            this.ali = null;
+            this.up = null;
+            this.down = null;
             this.l = null;
             this.t = null;
             this.imgurl = null;
-            this.num = 5;
-            this.right = $(".sku-container")
+            this.num = 4;
+            this.right = $(".sku-container");
+            this.salenum = 1;
         }
         init() {
+
             var _this = this;
-            this.spic.hover(function () {
-                _this.appear();
-                //小放大镜出现之后求其大小
-                _this.sfsize();
-                console.log((_this.sf.width())/2)
-                //让小放大镜移动并限定其移动范围
-                $(this).on('mousemove', function (ev) { 
-                    _this.sfmove(ev);
-                    _this.bpicmove(ev)
-                })
-            }, function () {
-                _this.disappear();
-            });
-            //鼠标划过图片列表,小图片和大图片更换地址
-            this.ali.hover(function () {
-                $(this).find("img").addClass("redborder").parent().siblings().find("img").removeClass("redborder")
-                _this.imgurl = $(this).find("img").attr("src");
-                _this.spic.find("img").attr("src", _this.imgurl);
-                _this.bpic.attr("src", _this.imgurl);
-            })
-            //图片列表的左右箭头点击事件
-            this.right.on("click", function () {
-                _this.rightarrow()
-            });
-            this.left.on("click", function () {
-                _this.leftarrow()
+
+            //获取地址栏上的sid值
+            var str = location.search;
+            var id = str.split("=")[1];
+
+            //渲染结构
+            $.get(
+                "http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/post.php",
+                { sid: id },
+                function (d) {
+
+                    $(".banner").append($(`
+                        <div class="main fl spic">
+                            <img src="${d.url}">
+                            <div class="sf" style="visibility:hidden"></div>
+                        </div>
+                        <div class="thumb fr" style="display: block;">
+                            <div class="thumb-container" style="top: 0px;">
+                                <div class="thumb-pic" style="border-color: rgb(132, 95, 63);">
+                                    <img src="${d.url}">
+                                </div>
+                                <div class="thumb-pic" style="border-color: rgb(236, 236, 236);">
+                                    <img src="${d.url}">
+                                </div>
+                                <div class="thumb-pic" style="border-color: rgb(236, 236, 236);">
+                                    <img src="${d.url}">
+                                </div>
+                                <div class="thumb-pic" style="border-color: rgb(236, 236, 236);">
+                                    <img src="${d.url}">
+                                </div>
+                                <div class="thumb-pic" style="border-color: rgb(236, 236, 236);">
+                                    <img src="${d.url}">
+                                </div>
+                                <div class="thumb-pic" style="border-color: rgb(236, 236, 236);">
+                                    <img src="${d.url}">
+                                </div>
+                            </div>
+                            <div class="thumb-arrow-up hidden"><a class="m-icons m-icons-up-active " data-src="" href="javascript:;"></a></div>
+                            <div class="thumb-arrow-down hidden"><a class="m-icons m-icons-down-active " data-src="" href="javascript:;"></a></div>
+                        </div>
+                    
+                        <div class="bf" style="visibility:hidden">
+                            <img src="${d.url}">
+                        </div>
+                    `))
+
+                    console.log(_this.right)
+                    _this.right.append($(`
+                        <div class="name clearfix">
+                            <div class="good-name fl">${d.name}</div>
+                        </div>
+                        <div class="summary">
+                            ${d.intro}
+                        </div>
+                        <div class="card">
+                            <!-- 价格 -->
+                            <div class="price-line">
+                                <h5 class="sku-title">售价</h5>
+                                <div class="price">
+                                    <span class="money-symbol">¥</span>
+                                    <span class="value">${d.price}</span>
+                                    <span class="market-price">¥${d.original_price}</span>
+                                </div>
+                            </div>
+                            <div class="service-line">
+                                <h5 class="sku-title">服务</h5>
+                                <div class="introduce-container">
+                                    <p class="icon">!</p>
+                                </div>
+                                <div class="service">
+                                    <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                            href="javascript:;"></a><span class="service-item-text">满99包邮</span></div>
+                                    <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                            href="javascript:;"></a><span class="service-item-text">有品三方</span></div>
+                                    <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                            href="javascript:;"></a><span class="service-item-text">7天无理由</span></div>
+                                    <div class="service-item">
+                                        <a class="m-icons m-icons-service " data-src="" href="javascript:;"></a>
+                                        <span class="service-item-text">由有品配送发货</span>
+                                        <span class="service-item-qualification">(查看商家资质)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="address-line">
+                            <h5 class="sku-title">配送区域</h5>
+                            <div class="address">
+                                <div>
+                                    <span>北京 北京市 海淀区</span>
+                                    <span>&nbsp;有货</span>
+                                    <a>修改</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="overflow: hidden; padding: 0px 0px 12px;">
+                                <div class="size-line clearfix">
+                                    <h5 class="sku-title"> 颜色 </h5>
+                                    <div class="size-container">
+                                        <div class="tag-item-onSelected">米白</div>
+                                        <div class="tag-item-onSaled">浅灰</div>
+                                        <div class="tag-item-onSaled">浅绿</div>
+                                        <div class="tag-item-onSaled">浅粉</div>
+                                        <div class="tag-item-onSaled">暗黑</div>
+                                    </div>
+                                </div>
+                                <!-- 尺码 -->
+                                <div class="size-line clearfix">
+                                    <h5 class="sku-title"> 尺码 </h5>
+                                    <div class="size-container">
+                                        <div class="tag-item-onSelected">XS</div>
+                                        <div class="tag-item-onSaled">S</div>
+                                        <div class="tag-item-onSaled">M</div>
+                                        <div class="tag-item-onSaled">L</div>
+                                        <div class="tag-item-onSaled">XL</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="count-line">
+                                <h5 class="sku-title count-title">数量</h5>
+                                <div class="count-container">
+                                    <div>
+                                        <div class="minus-btn"><a class="m-icons m-icons-reduce " data-src=""
+                                                href="javascript:;"></a></div><input type="text" value="1"
+                                            class="count-input">
+                                        <div class="minus-btn-active"><a class="m-icons m-icons-add-active " data-src=""
+                                                href="javascript:;"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-line">
+                            <div class="buy-btn-container">
+                                <a class="m-btns m-btn-middle m-btn-brown" href="javascript:;">加入购物车</a>
+                                <a class="m-btns m-btn-middle m-btn-brown-stroke" href="javascript:;">立即抢购</a>
+                            </div>
+                            <div class="favor-btn ">
+                                <div>
+                                    <a class="m-icons m-icons-collection " data-src="" href="javascript:;"></a>
+                                    <p>收藏</p>
+                                </div>
+                            </div>
+                            <div class="faver-service-btn favor-btn ">
+                                <div><a class="m-icons m-icons-service-detail " data-src="" href="javascript:;"></a>
+                                    <p>客服</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    `))
+
+                    //重新获取目标元素
+                    _this.spic = $(".spic");
+                    _this.sf = $(".spic .sf");
+                    _this.bf = $(".bf");
+                    _this.bpic = $(".bf img");
+                    _this.div = $(".thumb");
+                    _this.ul = $(".thumb-container");
+                    _this.ali = $(".thumb-container .thumb-pic");
+                    _this.up = $(".thumb-arrow-up");
+                    _this.down = $(".thumb-arrow-down");
+
+                    //鼠标划过小图片
+                    _this.spic.hover(function () {
+
+                        //小放大镜出现之后求其大小
+                        _this.appear();
+                        _this.sfsize();
+
+                        //让小放大镜移动并限定其移动范围
+                        $(this).on('mousemove', function (ev) {
+                            _this.sfmove(ev);
+                            _this.bpicmove(ev)
+                        })
+                    }, function () {
+                        _this.disappear();
+                    });
+
+                    //上下箭头的出现和消失
+                    _this.div.hover(function () {
+                        _this.up.removeClass("hidden");
+                        _this.down.removeClass("hidden");
+                    }, function () {
+                        _this.up.addClass("hidden");
+                        _this.down.addClass("hidden");
+                    })
+                    //鼠标划过图片列表,小图片和大图片更换地址
+                    _this.ali.hover(function () {
+                        $(this).css('border-color', ' rgb(132, 95, 63)').siblings().css('border-color', 'rgb(236, 236, 236)')
+                        _this.imgurl = $(this).find("img").attr("src");
+                        _this.spic.find("img").attr("src", _this.imgurl);
+                        _this.bpic.attr("src", _this.imgurl);
+                    })
+                    //图片列表的左右箭头点击事件
+                    _this.down.on("click", function () {
+                        _this.downarrow()
+                    });
+                    _this.up.on("click", function () {
+                        _this.uparrow()
+                    })
+
+                },
+                "json",
+            )
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+        //右面图片列表的上下箭头的点击事件
+        //这里的95是一个div的高度+边框+margin值(this.ali.eq(0).outerHeight(true))    4是div里可视的图片个数
+        //由于一直获取不到正确的值，所以用95替代
+        downarrow() {
+            if (this.num < this.ali.length) {
+                this.num++;
+            }
+            this.ul.stop(true, true).animate({
+                top: -95 * (this.num - 4),
             })
 
+        }
+        uparrow() {
+            if (this.num > 4) {
+                this.num--;
+            }
+            this.ul.stop(true, true).animate({
+                top: -95 * (this.num - 4),
+            })
         }
 
         //小放大镜和大放大镜的出现与消失
         appear() {
             this.sf.css('visibility', 'visible');
             this.bf.css('visibility', 'visible');
-            this.right.css('display','none');
+            this.right.css('display', 'none');
+
         }
         disappear() {
             this.sf.css('visibility', 'hidden');
             this.bf.css('visibility', 'hidden');
-            this.right.css('display','block');
+            this.right.css('display', 'block');
         }
 
         //求小放大镜的大小   this.sf/this.spic=this.bf/this.bpic
@@ -105,31 +318,7 @@
             })
         }
 
-        //下面图片列表的左右箭头点击事件
-        rightarrow() {
-            if (this.num < this.ali.length) {
-                this.num++;
-                this.left.css("color", "#333");
-                if (this.num == this.ali.length) {
-                    this.right.css("color", "#fff");
-                }
-            }
-            this.ul.stop(true, true).animate({
-                left: -this.ul.find("li").outerWidth() * (this.num - 5),
-            })
-        }
-        leftarrow() {
-            if (this.num > 5) {
-                this.num--;
-                this.right.css("color", "#333");
-                if (this.num == 5) {
-                    this.left.css("color", "#fff");
-                }
-            }
-            this.ul.stop(true, true).animate({
-                left: -this.ul.find("li").outerWidth() * (this.num - 5),
-            })
-        }
+
     }
 
     new Magnifier().init()

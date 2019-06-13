@@ -9,7 +9,7 @@
         content="小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。">
     <meta name="keywords"
         content="小米旗下精品生活电商平台,小米旗下精品生活电商,小米电商,小米电商平台,小米精品电商,小米有品,米家有品,精品电商,小米商城,生活电商,小米众筹,小米手机系列小米Note 3,小米5X,小米MIX 2,品质家居,日用,食品,服饰,婴童,箱包">
-
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/index.css">
 
     <title>小米有品</title>
@@ -52,7 +52,43 @@
         </div>
     </div>
 
-    <div class="search_nav"></div>
+    <div class="m-header clearfix">
+        <div class="" id="fixed">
+            <div class="container">
+                <div class="clearfix m-header-top">
+                    <div class="m-logo m-tag-a" data-src="/"></div>
+                    <div class="nav-part">
+                        <div class="nav-arrow-container"><span>分类</span><span
+                                class="m-icons m-icons-dropdown h-icons h-down-icon" data-src="" href=""></span>
+                            <div class="nav-container-box">
+                                <div class="nav-container">
+                                    <ul class="nav-list"></ul>
+                                    <div class="nav-detail "></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="tab-list">
+                        <li data-src="https://m.youpin.mi.com/w/secbuy?_rt=weex&amp;activity_id=5" class="tab-item">限时抢购
+                        </li>
+                        <li data-src="http://m.youpin.mi.com/shop/detail?gid=107784" class="tab-item">星品驾到</li>
+                    </ul>
+                    <div class="m-card-wrap fr">
+                        <div class="m-card-mini"><a class="m-icons m-icons-cart-hover " data-src="" href="javascript:;"></a>
+                        </div>
+                    </div>
+                    <div class="m-search">
+                        <div class="search-form "><a class="m-icons m-icons-search-hover search-icon" data-src=""
+                                href="javascript:;"></a>
+                            <div class="m-autocomplete search-input-con">
+                                <input type="text" value="" placeholder="粉丝专享日 拼手气抽金条" id="autocomplete">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="banner-nav">
         <div class="nav-container">
@@ -1004,123 +1040,6 @@
                 <h2 class="h-subTit">专属推荐<span></span></h2>
             </div>
             <div class="m-product-list  clearfix">
-                <!-- <div class="m-goods-item-container first pro-item-category">
-                    <div class="category-img-container">
-                        <div class="product-img">
-                            <div class="m-product-image-container undefined" style="width: 264px; height: 198px;">
-                                <div class="img-container" style="padding: 45px 70px 28px; width: 124px; height: 125px;">
-                                    <img src="https://img.youpin.mi-img.com/800_pic/eb390de4768ddae7ea75741f6e2d49d0.png?t=webp"
-                                        alt="贝医生牙刷（青春版）" style="height: 125px; width: 125px; margin-left: -0.5px;">
-                                </div>
-                            </div>
-                        </div>
-                        <p class="pro-desc">日本东丽超细软毛,镍银片植毛,...</p>
-                    </div>
-                    <div class="category-box">
-                        <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                style="background-color: rgb(217, 107, 108);">特惠</span><span
-                                class="common-tag common-tag-text"
-                                style="background-color: rgb(217, 107, 108);">满减</span></div>
-                        <p class="pro-info" title="贝医生牙刷（青春版）">贝医生牙刷（青春版）</p>
-                        <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">6.21</span><span
-                                class="pro-flag">起</span></p>
-                    </div>
-                </div>
-                <div class="m-goods-item-container  pro-item-category">
-                    <div class="category-img-container">
-                        <div class="product-img">
-                            <div class="m-product-image-container undefined" style="width: 264px; height: 198px;">
-                                <div class="img-container"
-                                    style="padding: 45px 70px 28px; width: 124px; height: 125px;"><img
-                                        src="http://img.youpin.mi-img.com/800_pic/102495_f26f63c454077cbf2a8723fa61898816.png?t=webp"
-                                        data-src="http://img.youpin.mi-img.com/800_pic/102495_f26f63c454077cbf2a8723fa61898816.png?t=webp"
-                                        alt="云米洗烘一体机8kg" style="height: 125px; width: 125px; margin-left: -0.5px;">
-                                </div>
-                            </div>
-                        </div>
-                        <p class="pro-desc">智能洗烘，1级能效，APP控制，...</p>
-                    </div>
-                    <div class="category-box">
-                        <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                style="background-color: rgb(217, 107, 108);">特惠</span><span
-                                class="common-tag common-tag-text"
-                                style="background-color: rgb(217, 107, 108);">满赠</span></div>
-                        <p class="pro-info" title="云米洗烘一体机8kg">云米洗烘一体机8kg</p>
-                        <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">1999</span></p>
-                    </div>
-                </div>
-                <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=106810"
-                    data-target="_blank">
-                    <div class="category-img-container">
-                        <div class="product-img">
-                            <div class="m-product-image-container undefined"
-                                data-src="https://img.youpin.mi-img.com/800_pic/fda6e5876895887b0d546944acff207d.png?t=webp"
-                                style="width: 264px; height: 198px;">
-                                <div class="img-container"
-                                    style="padding: 45px 70px 28px; width: 124px; height: 125px;"><img
-                                        src="https://img.youpin.mi-img.com/800_pic/fda6e5876895887b0d546944acff207d.png?t=webp"
-                                        data-src="https://img.youpin.mi-img.com/800_pic/fda6e5876895887b0d546944acff207d.png?t=webp"
-                                        alt="油烟机清洁剂" style="height: 125px; width: 125px; margin-left: -0.5px;"></div>
-                            </div>
-                        </div>
-                        <p class="pro-desc">生物降解，去油除垢，养护一体...</p>
-                    </div>
-                    <div class="category-box">
-                        <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                style="background-color: rgb(217, 107, 108);">特惠</span><span
-                                class="common-tag common-tag-text"
-                                style="background-color: rgb(217, 107, 108);">满减</span></div>
-                        <p class="pro-info" title="油烟机清洁剂">油烟机清洁剂</p>
-                        <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">17.8</span><span
-                                class="pro-flag">起</span></p>
-                    </div>
-                </div>
-                <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=104261"
-                    data-target="_blank">
-                    <div class="category-img-container">
-                        <div class="product-img">
-                            <div class="m-product-image-container undefined"
-                                data-src="https://img.youpin.mi-img.com/800_pic/1595729a32bf1819f98f3339fda9a415.png?t=webp"
-                                style="width: 264px; height: 198px;">
-                                <div class="img-container"
-                                    style="padding: 45px 70px 28px; width: 124px; height: 125px;"><img
-                                        src="https://img.youpin.mi-img.com/800_pic/1595729a32bf1819f98f3339fda9a415.png?t=webp"
-                                        data-src="https://img.youpin.mi-img.com/800_pic/1595729a32bf1819f98f3339fda9a415.png?t=webp"
-                                        alt="竹纤维纸面巾 青春版（24包/箱）"
-                                        style="height: 125px; width: 125px; margin-left: -0.5px;"></div>
-                            </div>
-                        </div>
-                        <p class="pro-desc">清新本色，有效抑菌，柔韧顺滑...</p>
-                    </div>
-                    <div class="category-box">
-                        <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                style="background-color: rgb(217, 107, 108);">满减</span></div>
-                        <p class="pro-info" title="竹纤维纸面巾 青春版（24包/箱）">竹纤维纸面巾 青春版（...</p>
-                        <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">34.9</span></p>
-                    </div>
-                </div>
-                <div class="m-goods-item-container first pro-item-category" data-src="/detail?gid=103178"
-                    data-target="_blank">
-                    <div class="category-img-container">
-                        <div class="product-img">
-                            <div class="m-product-image-container undefined" style="width: 264px; height: 198px;"
-                                data-src="http://img.youpin.mi-img.com/800_pic/790_17jezit0y2q48.png?t=webp">
-                                <div class="img-container"
-                                    style="padding: 45px 70px 28px; width: 124px; height: 125px;"><img
-                                        src="http://img.youpin.mi-img.com/800_pic/790_17jezit0y2q48.png?t=webp"
-                                        data-src="http://img.youpin.mi-img.com/800_pic/790_17jezit0y2q48.png?t=webp"
-                                        alt="贝医生巴氏牙刷 四色装" style="height: 125px; width: 125px; margin-left: -0.5px;">
-                                </div>
-                            </div>
-                        </div>
-                        <p class="pro-desc">贝医生牙线已上线，请搜索“牙...</p>
-                    </div>
-                    <div class="category-box">
-                        <div class="m-goods-common-tag-con"></div>
-                        <p class="pro-info" title="贝医生巴氏牙刷 四色装">贝医生巴氏牙刷 四色装...</p>
-                        <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">39.9</span></p>
-                    </div>
-                </div> -->
 
             </div>
         </div>
@@ -1175,15 +1094,52 @@
         </ul>
     </div>
 
-    <div class="footerpage"></div>
+    <div class="m-footer">
+        <div class="container clearfix">
+            <div class="fl m-f-logo"><img src="https://shop.io.mi-img.com/static/h5/static3/media/logo.d1484e61.png"
+                    alt="logo"></div>
+            <div class="f-info fr">
+                <div class="f-icons">
+                    <a href="https://home.mi.com/app/shop/content?id=na056d0394b93a391">
+                        <img src="https://shop.io.mi-img.com/static/h5/static3/media/f-logo.c6285587.png">
+                    </a>
+                </div>
+                <div>
+                    <p class="footer-item">
+                        <span>©xiaomiyoupin.com </span>
+                        <span>苏B2-20180351 苏ICP备18025642号-1</span>
+                        <img src="https://shop.io.mi-img.com/static/h5/static3/media/record-icon.d0289dc0.png" alt="logo"
+                            style="width: 15px; height: 15px; vertical-align: -3px;">
+                        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010502010244"
+                            target="_blank">苏公网安备 32010502010244号 </a>
+                    </p>
+                    <p class="footer-item">
+                        <span>企业名称：有品信息科技有限公司 </span>
+                        <a href="https://www.xiaomiyoupin.com/app/shop/content?id=qf58f1039488314e3" target="_blank">关于我们
+                        </a>
+                        <a href="https://zhaoshang.xiaomiyoupin.com/" target="_blank">入驻有品 </a>
+                    </p>
+                    <p class="footer-item">
+                        <a href="https://www.xiaomiyoupin.com/app/shop/content?id=s2426f03987ef05b5"
+                            target="_blank">小米有品平台运营主体变更公告 </a>
+                    </p>
+                    <p class="footer-item">
+                        <span>南京市建邺区白龙江东街8号3栋9层 </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
     <script src="script/thirdplugins/jquery.js"></script>
+    <script src="script/thirdplugins/jquery-ui.js"></script>
+    <script src="script/thirdplugins/jquery.lazyload.js"></script>
     <script src="script/js/Slideshow.js"></script>
-    <script src="script/js/public.js"></script>
     <script src="script/js/small.js"></script>
     <script src="script/js/index.js"></script>
+
 </body>
 
 </html>

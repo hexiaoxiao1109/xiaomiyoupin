@@ -2,12 +2,11 @@
 
 !function ($) {
 
-    console.log(1);
     //top资质证照和协议规则的出现隐藏
     $("#appear").hover(function () {
-        // $(".site-item-nav").removeClass("hidden").addClass("show");
+        $(".site-item-nav").removeClass("hidden").addClass("show");
     }, function () {
-        // $(".site-item-nav").removeClass("show").addClass("hidden");
+        $(".site-item-nav").removeClass("show").addClass("hidden");
     });
 
     //顶部悬浮
