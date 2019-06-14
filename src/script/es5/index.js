@@ -10,7 +10,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _classCallCheck(this, rendering);
 
             this.parent = $(".m-product-list");
-            this.auto = $("#autocomplete");
+            // this.auto = $("#autocomplete");
         }
 
         _createClass(rendering, [{
@@ -21,19 +21,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 //从数据库获取数据
                 //$.post()方法：参1：路径，参2：数据，参3：回调函数， 参4：返回内容的格式
                 $.post("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/getdate.php", function (d) {
-                    console.log(d);
                     _this.stru(d);
-                    console.log(_this.parent.children());
                     var $son = _this.parent.children();
                     $son.each(function (index, element) {
                         $(this).on("click", function () {
                             var id = d[index].ID;
-                            window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/dist/details.html?sid=" + id);
-                            console.log(2);
+                            window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/xiaomiyoupin/src/details.html?sid=" + id);
                         });
                     });
                 }, "json");
-                // this.search();
             }
 
             //渲染结构
@@ -49,6 +45,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } else {
                         _this.parent.append($("\n                    \n                    <div class=\"m-goods-item-container  pro-item-category\">\n                        <div class=\"category-img-container\">\n                            <div class=\"product-img\">\n                                <div class=\"m-product-image-container undefined\" style=\"width: 264px; height: 198px;\">\n                                    <div class=\"img-container\" style=\"padding: 45px 70px 28px; width: 124px; height: 125px;\">\n                                        <img width=\"125\" height=\"125\" data-original=\"" + element.url + "\" class=\"lazy\"\n                                        alt=\"" + element.name + "\" style=\"height: 125px; width: 125px; margin-left: -0.5px;\">\n                                    </div>\n                                </div>\n                            </div>\n                            <p class=\"pro-desc\">" + element.intro + "</p>\n                        </div>\n                        <div class=\"category-box\">\n                        <div class=\"m-goods-common-tag-con\"><span class=\"common-tag common-tag-text\"\n                                style=\"background-color: rgb(217, 107, 108);\">\u7279\u60E0</span><span\n                                class=\"common-tag common-tag-text\"\n                                style=\"background-color: rgb(217, 107, 108);\">\u6EE1\u51CF</span></div>\n                            <p class=\"pro-info\" title=\"\u8D1D\u533B\u751F\u7259\u5237\uFF08\u9752\u6625\u7248\uFF09\">" + element.name + "</p>\n                            <p class=\"pro-price\"><span class=\"pro-unit\">\xA5</span><span class=\"m-num\">" + element.price + "</span><span\n                                class=\"pro-flag\">\u8D77</span></p>\n                        </div>\n                    </div>\n                    \n                "));
                     }
+
+                    //懒加载
                     $(function () {
                         //和拼接的元素放在一起。
                         $("img.lazy").lazyload({
@@ -63,19 +61,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "details",
             value: function details() {}
-
-            //搜索框
-            // search(){
-            //     $.post(
-            //         "https://suggest.taobao.com/sug?code=utf-8&q=a&_ksTS=1560407219267_826&callback=jsonp827&k=1&area=c2c&bucketid=8",
-            //         function(d){
-            //             console.log(d)
-            //         },
-            //         "json",
-            //     )
-            // }
-
-
         }]);
 
         return rendering;

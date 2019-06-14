@@ -32,4 +32,25 @@
     }, function () {
         $(".nav-detail").addClass("hidden");
     });
+
+    //搜索框
+
+    $("#autocomplete").on('input', function () {
+        $.ajax({
+            url: 'https://suggest.taobao.com/sug?code=utf-8&q=' + this.value + '&_ksTS=1559009682637_1461&callback=taobao',
+            dataType: "jsonp",
+            jsonpCallback: "taobao",
+            success: function success(d) {
+                var arr = [];
+                var $d = $(d.result);
+
+                $d.each(function (index, element) {
+                    arr.push(element[0]);
+                });
+                $('#autocomplete').autocomplete({
+                    source: arr
+                });
+            }
+        });
+    });
 }(jQuery);

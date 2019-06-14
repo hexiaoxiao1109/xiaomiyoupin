@@ -19,9 +19,17 @@
             this.imgurl = null;
             this.num = 4;
             this.right = $(".sku-container");
+            this.car = $(".m-icons-cart-hover ")
+
             this.salenum = 1;
+            this.input = $(".count-input")
+            this.reduce = ($(".m-icons-reduce"));
+            this.add = $(".m-icons-add-active");
+            this.addToCar = $(".m-btn-brown");
+            this.toast = $(".m-toast");
         }
         init() {
+            // console.log(this.input.val())
 
             var _this = this;
 
@@ -35,6 +43,7 @@
                 { sid: id },
                 function (d) {
 
+                    console.log(_this.salenum)
                     $(".banner").append($(`
                         <div class="main fl spic">
                             <img src="${d.url}">
@@ -65,13 +74,13 @@
                             <div class="thumb-arrow-down hidden"><a class="m-icons m-icons-down-active " data-src="" href="javascript:;"></a></div>
                         </div>
                     
-                        <div class="bf" style="visibility:hidden">
+                        <div class="bf" style="visibility:hidden;background:#fff" >
                             <img src="${d.url}">
                         </div>
                     `))
 
-                    console.log(_this.right)
-                    _this.right.append($(`
+
+                    _this.right.prepend($(`
                         <div class="name clearfix">
                             <div class="good-name fl">${d.name}</div>
                         </div>
@@ -94,14 +103,14 @@
                                     <p class="icon">!</p>
                                 </div>
                                 <div class="service">
-                                    <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                    <div class="service-item"><a class="m-icons m-icons-service "
                                             href="javascript:;"></a><span class="service-item-text">满99包邮</span></div>
-                                    <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                    <div class="service-item"><a class="m-icons m-icons-service "
                                             href="javascript:;"></a><span class="service-item-text">有品三方</span></div>
-                                    <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                    <div class="service-item"><a class="m-icons m-icons-service "
                                             href="javascript:;"></a><span class="service-item-text">7天无理由</span></div>
                                     <div class="service-item">
-                                        <a class="m-icons m-icons-service " data-src="" href="javascript:;"></a>
+                                        <a class="m-icons m-icons-service " href="javascript:;"></a>
                                         <span class="service-item-text">由有品配送发货</span>
                                         <span class="service-item-qualification">(查看商家资质)</span>
                                     </div>
@@ -143,38 +152,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="count-line">
-                                <h5 class="sku-title count-title">数量</h5>
-                                <div class="count-container">
-                                    <div>
-                                        <div class="minus-btn"><a class="m-icons m-icons-reduce " data-src=""
-                                                href="javascript:;"></a></div><input type="text" value="1"
-                                            class="count-input">
-                                        <div class="minus-btn-active"><a class="m-icons m-icons-add-active " data-src=""
-                                                href="javascript:;"></a></div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
-                        <div class="btn-line">
-                            <div class="buy-btn-container">
-                                <a class="m-btns m-btn-middle m-btn-brown" href="javascript:;">加入购物车</a>
-                                <a class="m-btns m-btn-middle m-btn-brown-stroke" href="javascript:;">立即抢购</a>
-                            </div>
-                            <div class="favor-btn ">
-                                <div>
-                                    <a class="m-icons m-icons-collection " data-src="" href="javascript:;"></a>
-                                    <p>收藏</p>
-                                </div>
-                            </div>
-                            <div class="faver-service-btn favor-btn ">
-                                <div><a class="m-icons m-icons-service-detail " data-src="" href="javascript:;"></a>
-                                    <p>客服</p>
-                                </div>
-                            </div>
-                        </div>
+                        
                     
-                    `))
+                    `));
 
                     //重新获取目标元素
                     _this.spic = $(".spic");
@@ -186,6 +168,58 @@
                     _this.ali = $(".thumb-container .thumb-pic");
                     _this.up = $(".thumb-arrow-up");
                     _this.down = $(".thumb-arrow-down");
+                    
+                    
+                    //数量加减
+                    
+                    _this.reduce.on("click", function () {
+                        _this.salenum--;
+                        _this.input.val(_this.salenum);
+                        if(_this.input.val()<2){
+                            _this.reduce.parent().removeClass("minus-btn-active").addClass("minus-btn");
+                            _this.reduce.removeClass("m-icons-reduce-active").addClass("m-icons-reduce");
+                            _this.salenum=2;
+
+                        };
+                        if(_this.input.val()<5){
+                            _this.add.parent().removeClass("minus-btn").addClass("minus-btn-active");
+                            _this.add.removeClass("m-icons-add").addClass("m-icons-add-active");
+                        }
+                    });
+                    _this.add.on("click", function () {
+                        _this.salenum++;
+                        _this.input.val(_this.salenum);
+                        if(_this.input.val()>1){
+                            _this.reduce.parent().removeClass("minus-btn").addClass("minus-btn-active");
+                            _this.reduce.removeClass("m-icons-reduce").addClass("m-icons-reduce-active");
+                        };
+                        if(_this.input.val()==5){
+                            _this.add.parent().removeClass("minus-btn-active").addClass("minus-btn");
+                            _this.add.removeClass("m-icons-add-active").addClass("m-icons-add");
+                            _this.salenum=4;
+                        }
+                    });
+
+                    _this.addToCar.on("click",function(){
+
+
+                        $(`<span class="m-cart-news">   ${_this.input.val()}</span>`).appendTo(_this.car)
+
+                    });
+
+                    
+                    
+                    
+
+                    
+
+                    
+
+
+
+
+
+
 
                     //鼠标划过小图片
                     _this.spic.hover(function () {
@@ -230,11 +264,6 @@
                 "json",
             )
 
-
-
-
-
-
         }
 
 
@@ -267,13 +296,13 @@
         appear() {
             this.sf.css('visibility', 'visible');
             this.bf.css('visibility', 'visible');
-            this.right.css('display', 'none');
+            // this.right.css('display', 'none');
 
         }
         disappear() {
             this.sf.css('visibility', 'hidden');
             this.bf.css('visibility', 'hidden');
-            this.right.css('display', 'block');
+            // this.right.css('display', 'block');
         }
 
         //求小放大镜的大小   this.sf/this.spic=this.bf/this.bpic

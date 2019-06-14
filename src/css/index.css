@@ -2396,7 +2396,7 @@
     border: 1px solid transparent;
     background: #000;
     color: #fff;
-    font-size: 12px
+    font-size: 12px;
     }
 
     .m-alert.dismiss {
@@ -2942,17 +2942,17 @@
     }
 
     .m-card-mini .m-cart-news {
-    position: absolute;
-    right: -6px;
-    top: -3px;
-    width: 21px;
-    border-radius: 8px;
-    line-height: 17px;
-    display: block;
-    text-align: center;
-    color: #fff;
-    font-size: 12px;
-    background-color: #c00000
+        position: absolute;
+        right: -6px;
+        top: -3px;
+        width: 21px;
+        border-radius: 8px;
+        line-height: 17px;
+        display: block;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+        background-color: #c00000
     }
 
     .m-auto-list {

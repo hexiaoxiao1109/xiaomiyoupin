@@ -5,7 +5,7 @@
     class rendering {
         constructor() {
             this.parent = $(".m-product-list");
-            this.auto = $("#autocomplete");
+            // this.auto = $("#autocomplete");
         }
         init() {
             
@@ -15,21 +15,19 @@
             $.post(
                 "http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/getdate.php",
                 function (d) {
-                    console.log(d)
                     _this.stru(d);
-                    console.log(_this.parent.children())
                     let $son = _this.parent.children();
-                    $son.each(function(index,element){
-                        $(this).on("click",function(){
+                    $son.each(function (index, element) {
+                        $(this).on("click", function () {
                             var id = d[index].ID;
-                            window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/dist/details.html?sid="+id);
-                            console.log(2)
+                            window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/xiaomiyoupin/src/details.html?sid=" + id);
+
                         })
                     })
                 },
                 "json",
             );
-            // this.search();
+
         }
 
         //渲染结构
@@ -91,7 +89,9 @@
                     
                 `))
                 }
-                $(function() {//和拼接的元素放在一起。
+
+                //懒加载
+                $(function () {//和拼接的元素放在一起。
                     $("img.lazy").lazyload({
                         effect: "fadeIn"//图片显示方式
                     });
@@ -103,18 +103,6 @@
         details() {
 
         }
-
-        //搜索框
-        // search(){
-        //     $.post(
-        //         "https://suggest.taobao.com/sug?code=utf-8&q=a&_ksTS=1560407219267_826&callback=jsonp827&k=1&area=c2c&bucketid=8",
-        //         function(d){
-        //             console.log(d)
-        //         },
-        //         "json",
-        //     )
-        // }
-
 
     }
     new rendering().init()
