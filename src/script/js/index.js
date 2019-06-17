@@ -1,10 +1,8 @@
 ; (function ($) {
 
-
-
     class rendering {
         constructor() {
-            this.parent = $(".m-product-list");
+            // this.parent = $(".m-product-list");
             // this.auto = $("#autocomplete");
         }
         init() {
@@ -12,23 +10,25 @@
             let _this = this;
             //从数据库获取数据
             //$.post()方法：参1：路径，参2：数据，参3：回调函数， 参4：返回内容的格式
-            $.post(
-                "http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/getdate.php",
-                function (d) {
-                    _this.stru(d);
-                    let $son = _this.parent.children();
-                    $son.each(function (index, element) {
-                        $(this).on("click", function () {
-                            var id = d[index].ID;
-                            window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/xiaomiyoupin/src/details.html?sid=" + id);
+            // $.post(
+            //     "http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/getdate.php",
+            //     function (d) {
+            //         _this.stru(d);
+            //         let $son = _this.parent.children();
+            //         $son.each(function (index, element) {
+            //             $(this).on("click", function () {
+            //                 var id = d[index].ID;
+            //                 window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/dist/details.html?sid=" + id);
 
-                        })
-                    })
-                },
-                "json",
-            );
+            //             })
+            //         })
+            //     },
+            //     "json",
+            // );
+            console.log(2)
 
         }
+        
 
         //渲染结构
         stru(d) {
@@ -97,11 +97,6 @@
                     });
                 });
             })
-        }
-
-        //详情页
-        details() {
-
         }
 
     }

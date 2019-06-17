@@ -7,10 +7,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 ;(function ($) {
     var rendering = function () {
         function rendering() {
-            _classCallCheck(this, rendering);
-
-            this.parent = $(".m-product-list");
+            // this.parent = $(".m-product-list");
             // this.auto = $("#autocomplete");
+
+            _classCallCheck(this, rendering);
         }
 
         _createClass(rendering, [{
@@ -20,16 +20,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 var _this = this;
                 //从数据库获取数据
                 //$.post()方法：参1：路径，参2：数据，参3：回调函数， 参4：返回内容的格式
-                $.post("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/getdate.php", function (d) {
-                    _this.stru(d);
-                    var $son = _this.parent.children();
-                    $son.each(function (index, element) {
-                        $(this).on("click", function () {
-                            var id = d[index].ID;
-                            window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/xiaomiyoupin/src/details.html?sid=" + id);
-                        });
-                    });
-                }, "json");
+                // $.post(
+                //     "http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/php/getdate.php",
+                //     function (d) {
+                //         _this.stru(d);
+                //         let $son = _this.parent.children();
+                //         $son.each(function (index, element) {
+                //             $(this).on("click", function () {
+                //                 var id = d[index].ID;
+                //                 window.open("http://10.31.164.11/kejian/myproject/project/xiaomiyoupin/dist/details.html?sid=" + id);
+
+                //             })
+                //         })
+                //     },
+                //     "json",
+                // );
+                console.log(2);
             }
 
             //渲染结构
@@ -55,12 +61,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
                 });
             }
-
-            //详情页
-
-        }, {
-            key: "details",
-            value: function details() {}
         }]);
 
         return rendering;
